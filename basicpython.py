@@ -38,6 +38,84 @@ say_hi("Steve", "70")
 
 def cube(num):
     return num*num*num #get info back from a function, can't add any code after
+
 result = cube(4) #stored info from the function
 print(result)
+
+#if statement
+
+is_male = True #boolean variables
+is_tall = True
+
+if is_male or is_tall: #if this person is a mail or is tall
+    print("You are a male or tall or both")
+elif is_male and not(is_tall): #if this person is a male but short
+    print("You are a short male")
+elif not(is_male) and is_tall: #if this person is not male but tall
+    print("You are not a male but are tall")
+else: #if above is false, this would be displayed
+    print("You are neither male or tall")
+if is_male and is_tall: #both conditions have to meet
+    print("You are a tall male")
+
+#if statement and comparisons, can compare number, strings, booleans
+
+def max_num(num1, num2, num3): #max numbers between these 3 numbers
+    if num1 != num2 #if num1 is not the same as num 2
+    if num1 >= num2 and num1>= num3: #if num 1 is bigger than 2 and 3
+        return num1
+    elif num2 >= num1 and num2 >= num3: #else if, num 2 is bigger than 1 and 3
+        return num2
+    else:      #if 1 and 2 are both not the biggest, then num 3 is biggest
+        return num3
+print(max_num(3,4,5))
+
+#Build a better calculator
+
+num1 = float(input("Enter first number: ")) #convert whatever user inputs into float, or else it's automatic string
+op = (input("Enter operator: ") #operator, addition, etc
+num2 = float(input("Enter second number: ")) #number
+
+if op == "+":
+    print(num1 + num2)
+elif op == "-":
+    print(num1 - num2)
+elif op == "/":
+    print(num1 / num2)
+elif op == "*":
+    print(num1 * num2)
+else:
+    print("Invalid operator")
+
+#dictionary, convert 3 digit month name to full month name, store key value pairs
+
+monthConversions = {
+    "Jan": "Janurary",
+    "Feb": "Feburary",
+    "Mar": "March",
+    "Apr": "April",
+    "May": "May",
+}
+
+print(monthConversions["Nov"]) #get full month
+print(monthConversions.get("Luv")) #put in a key that doesn't map to dictionary, we get none
+print(monthConversions.get("Luv","not a valid key")) #if can't find, would return not a valid key
+
+#While loop
+i = 1
+while i <= 10: #condition, after every execution, comes back to check the condion, max 10
+    print(i)
+    i += 1 #automatically add 1 to i
+
+print("Done with loop")
+
+#build basic guessing game
+
+secret_word = "giraffe"
+guess = ""
+
+while guess != secret_word: #as long as user doesn't guess secret word, keep looping for response
+    guess = input("enter guess: ")
+
+print("You win!") # not below while, success message
 
