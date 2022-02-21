@@ -113,9 +113,159 @@ print("Done with loop")
 
 secret_word = "giraffe"
 guess = ""
+guess_count = 0
+guess_limit =3
+out_of_guesses = False #tell us weather or not users are out of guesses
 
-while guess != secret_word: #as long as user doesn't guess secret word, keep looping for response
-    guess = input("enter guess: ")
+while guess != secret_word and not(out_of_guesses): #as long as user doesn't guess secret word, and still have guesses
+    if guess_count < guess_limit: #are the guess counts less than limit?
+        guess = input("enter guess: ")
+        guess_count += 1
+    else:
+        out_of_guesses = True
 
-print("You win!") # not below while, success message
+if out_of_guesses:
+    print("Out of Guesses, you lose")
+else:
+    print("You win")
+
+#For loop, loop through every element
+
+friends = ["jim", "Karen", "Kevin"]
+for friend in friends:       #specify a collection you wanna go over
+    print(friend)
+for index in range (10) #print out every number from 0-9
+    print(index)
+for index in range(3,10):
+    print(index) #print out all numbers from 3-10, excluding 10
+len(friends) #how many element is in the array, how many friends
+for index in range(len(friends)):
+    print(friends[index])
+
+for index in range(5): #only first printed is first iteration, everything else is not first
+    if index == 0:
+        print("first iteration")
+    else:
+        print("Not first")
+
+#Exponent function
+
+def raise_to_power(base_num, pow_num): #parameters in bracket, taking in base number and pow number
+    result = 1 #define variable called result, store actual result of doing math
+    for index in range (pow_num): #specificy for loop, loop through power number of times, from 0 not including power number
+        result = result * base_num
+    return result
+
+print(raise_to_power(3,2))
+
+#2D list and nested loop, create grid looking list inside python
+
+number_grid = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9],
+    [0]
+]
+print(number_grid[2][1])
+for row in number_grid:
+   for col in row: # we want each individual element inside the array
+       print(col)
+
+#Build a translator
+
+def translate(phrase):
+    translation = ""
+    for letter in phrase:
+        if letter in "AEIOUaeious": #checking if letter is inside the string
+            if letter.isupper():
+                translation = translation + "G"
+            else translation = translation +"g"
+        else:
+            translation = translation + letter
+    return translation
+print(translate(input("Enter a phrase")))
+
+#Try except blog - try out entering something
+
+try:
+    value = 10/0
+    number = int(input("Enter a number")) #enter whatever and will convert to integer
+    print(number)
+except ZeroDivisionError as err:
+    print(err)
+except ValueError:
+    print("invalid input")
+
+#reading files
+
+employee_file = open(#"name of the file", "r") # I only want to read the file inside, "w" means I want to write the file, overwritting everything in existing file
+ # "a" means I want to add new information to the file, "r+" I want to read and write
+    for employee in employee_file.readlines():
+        print(employee) #print out each line in the file
+
+print(employee_file.readable()) #tell us whether or not we can read the file
+print(employee_file.readline()) # read first line of the file
+print(employee_file.readlines()[1])
+employee_file.close()
+
+#Writing to the file
+
+employee_file = open ("employees.text","a") #appending is easy to mess up the file
+employee_file = open("employees1.text","w") #write a new file
+employee_file.write("Toby - Human Resources")
+employee_file.write("\nkelly = customer service") #add it to a new line
+employee_file.close()
+
+#Modules and Pip, python file we can import to our current python file, including useful functions, etc
+
+import #type name of the file that's useful
+print(#file name. will show functions) importing functionality to your python file
+#search up list of python modules on google, will show up, external python and some are built in, like lib on the side
+
+#classes and objects, create own data types, made student data type
+from Student import Student
+
+student1 = Student("Jim", "Business", 3.1, False) #want to create a student object (instance of a class)
+
+print(student1.name)
+
+#multiple choice quizz in python
+
+from Question import Question
+
+question_prompts = [
+    "what color are apples?\n(a) Red/Green\n(b) Purple\n(c) Orange\n\n",
+    "what color are bananas?\n(a) yellow\n(b) green\n\n",
+    "what color are strawberries?\n(a) red\n(b) green\n\n"
+]
+
+questions = [
+    Question(question_prompts[0], "a"), #use a class to model this
+    Question(question_prompts[1], "a"),
+    Question(question_prompts[2], "a"),
+]
+
+def run_test(questions): #loop through and get user to answer to make sure its right
+    score = 0
+    for question in questions: #for each question object in question array we wanna do something
+        answer = input(question.prompt)
+        if answer == question.answer: #check to see if student gave right answer
+            score += 1
+    print("You got " + str(score) + "/" + str(len(questions)) + "Correct")
+
+run_test(questions)
+
+#Object functions
+
+student1 = Student("Oscar", "Accounting", 3.1)
+student2 = student("Phyllis", "Business", 3.8)
+
+print(student1.on_honor_roll)) #is this student on honor roll?
+
+#Inheritence
+
+from chef import chef
+
+
+
 
